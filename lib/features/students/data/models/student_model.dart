@@ -14,32 +14,32 @@ class StudentModel extends Student {
     required super.legendLevel,
   });
 
-  factory StudentModel.fromJson(Map<String, dynamic> json) {
+  factory StudentModel.fromMap(Map<String, Object?> map) {
     return StudentModel(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      nickname: json['nickname'] as String? ?? '',
+      id: map['id'] as String,
+      name: map['name'] as String,
+      nickname: map['nickname'] as String? ?? '',
       course: Course.values.firstWhere(
-        (c) => c.name == json['course'],
+        (c) => c.name == map['course'],
         orElse: () => Course.info,
       ),
-      classYear: json['classYear'] as int,
-      birthDate: DateTime.parse(json['birthDate'] as String),
-      ratings: PopularityRatingsModel.fromJson(json['ratings'] as Map<String, dynamic>),
-      legendLevel: json['legendLevel'] as int,
+      classYear: map['class_year'] as int,
+      birthDate: DateTime.parse(map['birth_date'] as String),
+      ratings: PopularityRatingsModel.fromMap(map),
+      legendLevel: map['legend_level'] as int,
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, Object?> toMap() {
     return {
       'id': id,
       'name': name,
       'nickname': nickname,
       'course': course.name,
-      'classYear': classYear,
-      'birthDate': birthDate.toIso8601String(),
-      'ratings': PopularityRatingsModel.fromEntity(ratings).toJson(),
-      'legendLevel': legendLevel,
+      'class_year': classYear,
+      'birth_date': birthDate.toIso8601String(),
+      ...PopularityRatingsModel.fromEntity(ratings).toMap(),
+      'legend_level': legendLevel,
     };
   }
 

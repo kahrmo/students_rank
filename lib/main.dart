@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'core/database/app_database.dart';
+import 'features/students/data/services/theme_local_service.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 import 'core/router/app_router.dart';
@@ -36,12 +37,13 @@ import 'features/students/presentation/viewmodels/theme_viewmodel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final prefs = await SharedPreferences.getInstance();
+  final appDatabase = AppDatabase();
 
-  final localService = StudentLocalService(prefs);
+  final studentLocalService = StudentLocalService(appDatabase);
+  final themeLocalService = ThemeLocalService(appDatabase);
 
-  final studentRepo = StudentRepositoryImpl(localService);
-  final themeRepo = ThemeRepositoryImpl(localService);
+  final studentRepo = StudentRepositoryImpl(studentLocalService);
+  final themeRepo = ThemeRepositoryImpl(themeLocalService);
 
   final createStudentUseCase = CreateStudentUseCase(studentRepo);
   final updateStudentUseCase = UpdateStudentUseCase(studentRepo);
@@ -76,18 +78,15 @@ void main() async {
     splashBuilder: (context) => const SplashScreen(),
     homeBuilder: (context) => HomeScreen(themeViewModel: themeViewModel),
     studentsBuilder: (context) => StudentsScreen(viewModel: studentsViewModel),
-    studentFormBuilder: (context, id) => StudentFormScreen(viewModel: studentsViewModel, id: id),
-    studentDetailsBuilder: (context, id) => StudentDetailsScreen(viewModel: studentsViewModel, id: id),
+    studentFormBuilder: (context, id) =>
+        StudentFormScreen(viewModel: studentsViewModel, id: id),
+    studentDetailsBuilder: (context, id) =>
+        StudentDetailsScreen(viewModel: studentsViewModel, id: id),
     rankingBuilder: (context) => RankingScreen(viewModel: studentsViewModel),
     aboutBuilder: (context) => const AboutScreen(),
   );
 
-  runApp(
-    MainApp(
-      router: router,
-      themeViewModel: themeViewModel,
-    ),
-  );
+  runApp(MainApp(router: router, themeViewModel: themeViewModel));
 }
 
 class MainApp extends StatelessWidget {

@@ -1,9 +1,9 @@
 import '../../../../core/result/result.dart';
 import '../../domain/repositories/theme_repository.dart';
-import '../services/student_local_service.dart';
+import '../services/theme_local_service.dart';
 
 class ThemeRepositoryImpl implements ThemeRepository {
-  final StudentLocalService _localService;
+  final ThemeLocalService _localService;
 
   ThemeRepositoryImpl(this._localService);
 

@@ -17,45 +17,45 @@ class PopularityRatingsModel extends PopularityRatings {
     super.queridinhoDosProfessores = 1,
     super.cerebroTurbo = 1,
     super.caosControlado = 1,
-  });
+});
 
-  factory PopularityRatingsModel.fromJson(Map<String, dynamic> json) {
+  factory PopularityRatingsModel.fromMap(Map<String, Object?> map) {
     return PopularityRatingsModel(
-      resenha: json['resenha'] as int? ?? 1,
-      presencaVip: json['presencaVip'] as int? ?? 1,
-      aura: json['aura'] as int? ?? 1,
-      modoParceiro: json['modoParceiro'] as int? ?? 1,
-      carismaNatural: json['carismaNatural'] as int? ?? 1,
-      humorDeMilhoes: json['humorDeMilhoes'] as int? ?? 1,
-      energiaDeGrupo: json['energiaDeGrupo'] as int? ?? 1,
-      criatividadeCaotica: json['criatividadeCaotica'] as int? ?? 1,
-      modoAtleta: json['modoAtleta'] as int? ?? 1,
-      talentoDePalco: json['talentoDePalco'] as int? ?? 1,
-      dripEscolar: json['dripEscolar'] as int? ?? 1,
-      coracaoDeDorama: json['coracaoDeDorama'] as int? ?? 1,
-      queridinhoDosProfessores: json['queridinhoDosProfessores'] as int? ?? 1,
-      cerebroTurbo: json['cerebroTurbo'] as int? ?? 1,
-      caosControlado: json['caosControlado'] as int? ?? 1,
+      resenha: map['resenha'] as int? ?? 1,
+      presencaVip: map['presenca_vip'] as int? ?? 1,
+      aura: map['aura'] as int? ?? 1,
+      modoParceiro: map['modo_parceiro'] as int? ?? 1,
+      carismaNatural: map['carisma_natural'] as int? ?? 1,
+      humorDeMilhoes: map['humor_de_milhoes'] as int? ?? 1,
+      energiaDeGrupo: map['energia_de_grupo'] as int? ?? 1,
+      criatividadeCaotica: map['criatividade_caotica'] as int? ?? 1,
+      modoAtleta: map['modo_atleta'] as int? ?? 1,
+      talentoDePalco: map['talento_de_palco'] as int? ?? 1,
+      dripEscolar: map['drip_escolar'] as int? ?? 1,
+      coracaoDeDorama: map['coracao_de_dorama'] as int? ?? 1,
+      queridinhoDosProfessores: map['queridinho_dos_professores'] as int? ?? 1,
+      cerebroTurbo: map['cerebro_turbo'] as int? ?? 1,
+      caosControlado: map['caos_controlado'] as int? ?? 1,
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, Object?> toMap() {
     return {
       'resenha': resenha,
-      'presencaVip': presencaVip,
+      'presenca_vip': presencaVip,
       'aura': aura,
-      'modoParceiro': modoParceiro,
-      'carismaNatural': carismaNatural,
-      'humorDeMilhoes': humorDeMilhoes,
-      'energiaDeGrupo': energiaDeGrupo,
-      'criatividadeCaotica': criatividadeCaotica,
-      'modoAtleta': modoAtleta,
-      'talentoDePalco': talentoDePalco,
-      'dripEscolar': dripEscolar,
-      'coracaoDeDorama': coracaoDeDorama,
-      'queridinhoDosProfessores': queridinhoDosProfessores,
-      'cerebroTurbo': cerebroTurbo,
-      'caosControlado': caosControlado,
+      'modo_parceiro': modoParceiro,
+      'carisma_natural': carismaNatural,
+      'humor_de_milhoes': humorDeMilhoes,
+      'energia_de_grupo': energiaDeGrupo,
+      'criatividade_caotica': criatividadeCaotica,
+      'modo_atleta': modoAtleta,
+      'talento_de_palco': talentoDePalco,
+      'drip_escolar': dripEscolar,
+      'coracao_de_dorama': coracaoDeDorama,
+      'queridinho_dos_professores': queridinhoDosProfessores,
+      'cerebro_Turbo': cerebroTurbo,
+      'caos_controlado': caosControlado,
     };
   }
 
