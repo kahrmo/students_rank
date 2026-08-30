@@ -1,3 +1,3 @@
-# popu_ranking_tads
+# students_rank
 
 A new Flutter project.
