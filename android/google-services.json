@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "56151394046",
+    "project_id": "students-ranking-if",
+    "storage_bucket": "students-ranking-if.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56151394046:android:67823917764ce5ae9887af",
+        "android_client_info": {
+          "package_name": "com.example.popu_ranking_tads"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI8829-4avGbustJC2L7ac1Ts5gDIpwYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
